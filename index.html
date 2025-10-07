@@ -8,6 +8,7 @@
     body { font-family: Arial, sans-serif; padding: 20px; }
     h2 { color: #2b7a78; }
     button { padding: 10px 20px; margin-top: 10px; border: none; background: #2b7a78; color: white; border-radius: 6px; }
+    iframe { width: 100%; height: 500px; border: 1px solid #ccc; margin-top: 20px; border-radius: 8px; }
   </style>
 </head>
 <body>
@@ -17,12 +18,16 @@
   <button onclick="send()">Отправить</button>
   <p id="answer" style="margin-top:20px; font-weight:500;"></p>
 
+  <h3 style="margin-top:30px;">📘 Учебник</h3>
+  <p>Читай прямо здесь:</p>
+  <iframe src="uchebnik.pdf"></iframe>
+
   <script>
     function send() {
       const q = document.getElementById('question').value;
       document.getElementById('answer').innerText =
         "Вы спросили: " + q + "\n\n(Здесь будет ответ от бота)";
-      Telegram.WebApp.sendData(q); // отправляет сообщение боту
+      Telegram.WebApp.sendData(q);
     }
     Telegram.WebApp.ready();
   </script>
